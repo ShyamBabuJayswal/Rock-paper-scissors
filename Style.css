@@ -1,0 +1,380 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Barlow Condensed", sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 110vh;
+    background: #8cc461;
+}
+
+.scoreboard {
+    width: 750px;
+    height: 150px;
+    border-radius: 15px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.title {
+    padding-left: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.scorebox {
+    display: flex;
+    justify-content: space-between;
+}
+
+.score {
+    width: 150px;
+    height: 114px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    margin-right: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score h1 {
+    color: black;
+    font-size: 56px;
+    font-family: "Barlow", sans-serif;
+}
+
+.score p {
+    color: rgba(101, 101, 101, 1);
+    font-size: 25px;
+    font-style: roboto;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 2.5px;
+    text-align: center;
+}
+
+.hands {
+    background-image: url("../assets/triangle.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    visibility: visible;
+    opacity: 1;
+    position: relative;
+    width: 476px;
+    height: 430px;
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.rockCircle {
+    border: 10px solid rgba(0, 116, 182, 1);
+    background-image: url("assets/Rock.png");
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    margin-right: 220px;
+    margin-top: -5px;
+}
+
+.scissorsCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+
+    margin-top: -5px;
+
+    border: 10px solid rgba(189, 0, 255, 1);
+    background-image: url("assets/Scissors.png");
+    background-size: 50px;
+    rotate: -5.27 deg;
+}
+
+.paperCircle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 80px;
+    margin-top: 100px;
+    border: 10px solid rgba(255, 169, 67, 1);
+    background-image: url("assets/Paper.png");
+}
+
+.hands .hand {
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.hands .hand:hover {
+    transform: translate3d(0px, -8px, 0px);
+}
+
+.contest {
+    display: none;
+    margin-top: 50px;
+    width: 900px;
+}
+
+.contest img {
+    width: 275px;
+    height: 275px;
+}
+
+.contest > div {
+    flex: 1;
+}
+
+.contest h1 {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.contest .newGame {
+    color: hsl(229, 25%, 31%);
+    background-color: white;
+    padding: 12px 24px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.newGame:hover {
+    background: rgb(218, 218, 218);
+    transform: translate3d(0px, -2px, 0px);
+}
+
+.contest .handImageContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.referee {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.referee h1 {
+    font-size: 45px;
+    color: white;
+}
+
+.computerhand {
+    display: flex;
+    flex-direction: column;
+}
+.buttons {
+    margin-left: 900px;
+    margin-bottom: 50px;
+}
+
+.btn {
+    background-color: #8cc461;
+    width: 125px;
+    height: 50px;
+    border: 1px solid white;
+    border-radius: 8px;
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.buttons:hover {
+    cursor: pointer;
+    transform: translate3d(0px, -2px, 0px);
+}
+.hidden {
+    display: none;
+}
+.rules-btn {
+    order: 1; /* Move the Rules button to the bottom */
+    margin-top: 20px; /* Add some top margin for spacing */
+}
+
+#rules-container {
+    background-color: darkgreen;
+    padding: 20px;
+    width: 270px;
+    height: 500px;
+    border: 5px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-top: -600px;
+    margin-left: 850px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 40px;
+    right: 45px;
+    cursor: pointer;
+}
+
+#rules-modal h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+#rules-modal ul.rules {
+    list-style: none;
+    padding: 0;
+}
+
+#rules-modal ul.rules li {
+    margin-bottom: 10px;
+}
+
+.wongame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #8cc461;
+    z-index: 9999;
+}
+
+/* Style for the wongame content */
+#trophy {
+    width: 200px;
+    height: 200px;
+    margin-left: -350px;
+}
+#stars {
+    margin-left: -350px;
+}
+#wongame {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Center align text and buttons in wongame */
+.won-game-heading {
+    font-size: 60px;
+    margin-top: 20px;
+    margin-left: -150px;
+    color: white;
+}
+
+.won-game-sub-heading {
+    font-size: 60px;
+    margin-top: 10px;
+    margin-left: -150px;
+    color: white;
+}
+
+.filled-btn.large {
+    background-color: white;
+    color: Black; /* Button text color */
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    font-weight: 700;
+    border-radius: 5px;
+    margin-left: -140px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filled-btn.large:hover {
+    transform: translate3d(0px, -2px, 0px);
+}
+
+.rules-btn.btn {
+    width: 150px;
+    height: 50px;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 40px;
+}
+
+.wongame {
+    display: none;
+}
+
+.circlecontainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.circle1 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(103, 239, 103);
+    border-radius: 50%;
+    top: 50px;
+    left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle2 {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background-color: rgb(8, 242, 8);
+    border-radius: 50%;
+    top: 75px;
+    left: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.circle3 {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background-color: rgb(9, 172, 9);
+    border-radius: 50%;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
